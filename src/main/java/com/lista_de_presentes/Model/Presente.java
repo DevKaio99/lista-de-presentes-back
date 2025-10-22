@@ -12,12 +12,30 @@ public class Presente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomePresenteador;
+    private String nomeItem;
+    private Double valorItem;
 
     @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
 
     private LocalDate dataPresente = LocalDate.now();
+
+    public String getNomeItem() {
+        return nomeItem;
+    }
+
+    public Double getValorItem() {
+        return valorItem;
+    }
+
+    public void setValorItem(Double valorItem) {
+        this.valorItem = valorItem;
+    }
+
+    public void setNomeItem(String nomeItem) {
+        this.nomeItem = nomeItem;
+    }
 
     public Long getId() {
         return id;

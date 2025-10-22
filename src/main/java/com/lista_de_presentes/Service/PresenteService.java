@@ -30,6 +30,8 @@ public class PresenteService {
         Presente presente = new Presente();
         presente.setItem(item);
         presente.setNomePresenteador(nomePresenteador);
+        presente.setNomeItem(item.getNome());
+        presente.setValorItem(item.getPreco());
         return presenteRepository.save(presente);
     }
 }

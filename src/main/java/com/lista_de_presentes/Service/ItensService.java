@@ -22,18 +22,4 @@ public class ItensService {
                 .map(ItensDTO::new)
                 .toList();
     }
-
-    public ItensDTO presentearItem(Long id) {
-        Item item = itensRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Item não encontrado"));
-        if (item.getQuantidade() <=0 ) {
-            throw new RuntimeException("Item esgotado");
-        }
-
-        item.setQuantidade(item.getQuantidade() -1);
-        Item atualizado = itensRepository.save(item);
-
-        return new ItensDTO(atualizado);
-    }
-
 }
